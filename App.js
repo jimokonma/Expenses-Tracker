@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import HomeScreen from "./screens/HomeScreen";
 import TransactionScreen from "./screens/TransactionScreen";
 import { Colors } from "./components/ui/Colors";
-import { Text } from "react-native";
+import { Alert, Text } from "react-native";
 import AddButton from "./components/ui/AddButton";
 
 const MyTheme = {
@@ -48,7 +48,9 @@ export default function App() {
           component={HomeScreen}
           options={{
             title: "Recente Expenses",
-            headerRight: () => <AddButton />,
+            headerRight: () => (
+              <AddButton onPress={() => Alert.alert("Enter new Expenses")} />
+            ),
           }}
         />
         <Tab.Screen name="History" component={TransactionScreen} />
